@@ -1,0 +1,40 @@
+1. use testDB
+
+2. db.createCollection("student65")
+   db.createCollection("testDel")
+
+3. db.testDel.drop()
+
+4. db.student65.insertMany([{"std_fname":"Rachanon", "std_lname": "Montree", "std_ID": "63160097"}]) 
+
+5. db.student65.updateOne({std_ID: '63160097'}, {$set: {std_tel: '0638865982', std_email: '63160097@go.buu.ac.th'}})
+
+6. db.student65.updateOne({std_ID: '88839159'}, {$set: {std_tel: '080-019-4811'}})
+
+
+{
+  "_id": {
+    "$oid": "63c6414e1ac3492e7ee54b3f"
+  },
+  "id": "1",
+  "name": "Rachanon Montree",
+  "age": "21",
+  "hobbies": {
+    "indoor": [
+      "Chess",
+      "Games"
+    ],
+    "outdoor": [
+      "Basketball",
+      "Football"
+    ]
+  },
+  "dateofbirth": {
+    "$date": {
+      "$numberLong": "1015002000000"
+    }
+  },
+  "email": "midterm@email.com"
+}
+
+{$or: [{"hobbies.indoor": "Basketball"}, {"hobbies.outdoor": "Basketball"}]}
